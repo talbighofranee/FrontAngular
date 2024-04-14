@@ -12,6 +12,7 @@ RUN npm install
 
 # Construire le projet
 RUN npm run build
+EXPOSE 4200
 
 # Deuxième étape pour créer une image légère
 FROM nginx:alpine
