@@ -10,9 +10,9 @@ import { UserQRCodeComponent } from 'src/app/user-qr-code/user-qr-code.component
 import { AuthGuard } from 'src/app/Services/AuthGuard';
 
 const routes: Routes = [
-  {path:'listuser',component:ListuserComponent, canActivate: [AuthGuard]},
-  {path:'adduser',component:AddUserComponent , canActivate: [AuthGuard]},
-  { path: 'updateuser/:id', component: UpdateuserComponent , canActivate: [AuthGuard] },
+  {path:'listuser',component:ListuserComponent},
+  {path:'adduser',component:AddUserComponent },
+  { path: 'updateuser/:id', component: UpdateuserComponent },
 
 
 

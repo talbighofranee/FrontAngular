@@ -18,19 +18,19 @@ import { ReservationComponent } from './reservation/reservation.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent },
 { path: 'user',data:{breadcrumb:'User'},loadChildren:()=>import('./features/users/user.module').then(m=>m.UserModule)},
 { path: 'foy',data:{breadcrumb:'Foyer'},loadChildren:()=>import('./features/foyers/foyer.module').then(m=>m.FoyerModule)},
 
   { path: 'login', component: LoginComponent },
   { path: 'inscription', component: InscriptionComponent },
 
-  { path: 'user/:id/qr-code', component: UserQRCodeComponent, canActivate: [AuthGuard] },
-  { path: 'universite', component: UniversitiesComponent , canActivate: [AuthGuard]},
-  { path: 'reservation', component: ReservationComponent, canActivate: [AuthGuard] },
+  { path: 'user/:id/qr-code', component: UserQRCodeComponent },
+  { path: 'universite', component: UniversitiesComponent },
+  { path: 'reservation', component: ReservationComponent},
 
 
-  { path: 'updateuni/:id', component: UpdateUniComponent, canActivate: [AuthGuard] },
+  { path: 'updateuni/:id', component: UpdateUniComponent},
   { path: 'Bloc',data:{breadcrumb:'Bloc'},loadChildren:()=>import('../app/features/bloc/bloc.module').then(m=>m.BlocModule)},
   { path: 'Chambre',data:{breadcrumb:'Chambre'},loadChildren:()=>import('../app/features/chambre/chambre.module').then(m=>m.ChambreModule)},
   { path: 'Etudiant', data: { breadcrumb: 'Etudiant' }, loadChildren: () => import('../app/features/etudiant/etudiant.module').then(m=>m.EtudiantModule) },
@@ -41,7 +41,7 @@ const routes: Routes = [
  // { path: 'listuser', component: ListuserComponent, canActivate: [AuthGuard] },
    // { path: 'updatefoyer/:id', component: UpdatefoyerComponent, canActivate: [AuthGuard] },
   // { path: 'listetu', component: ListEtudiantComponent, canActivate: [AuthGuard] },
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotfoundComponent },
 
 
