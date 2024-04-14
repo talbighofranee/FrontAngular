@@ -17,35 +17,35 @@ export class ChambreService {
     })
   }
   updateChambre(idChambre: any, updatedData: any): Observable<any> {
-    return this.http.put<any>("http://localhost:8086/projet/chambre/update-Chambre/" + idChambre, updatedData);
+    return this.http.put<any>("192.168.80.128:8086/projet/chambre/update-Chambre/" + idChambre, updatedData);
   }
   
   getChambreList():Observable<ChambreModel[]>
   {
-    return this.http.get<ChambreModel[]>("http://localhost:8086/projet/chambre/retrieve-all-chambre");
+    return this.http.get<ChambreModel[]>("http://192.168.80.128:8086/projet/chambre/retrieve-all-chambre");
   }
   retrieveChambre(idChambre: any): Observable<any> {
-    return this.http.get<any>(`http://localhost:8086/projet/chambre/retrieve-Chambre/${idChambre}`);
+    return this.http.get<any>(`http://192.168.80.128:8086/projet/chambre/retrieve-Chambre/${idChambre}`);
   }
   
   
 AddChambre(data : any)
 {
-  return this.http.post<any>("http://localhost:8086/projet/chambre/add-Chambre",data);
+  return this.http.post<any>("http://192.168.80.128:8086/projet/chambre/add-Chambre",data);
 
 }
 DeleteChambre(idChambre: any): Observable<any> {
-    return this.http.delete<any>(`http://localhost:8086/projet/chambre/remove-Chambre/${idChambre}`);
+    return this.http.delete<any>(`http:/192.168.80.128:8086/projet/chambre/remove-Chambre/${idChambre}`);
   }
   
   
 
   UpdateChambreById(idChambre: any, updatedData: any): Observable<any> {
-    return this.http.put<any>(`http://localhost:8086/projet/chambre/update-chambre/${idChambre}`, updatedData);
+    return this.http.put<any>(`http://192.168.80.128:8086/projet/chambre/update-chambre/${idChambre}`, updatedData);
   }
   
   qrcode(idChambre: number): Observable<Blob> {
-    return this.http.get(`http://localhost:8086/projet/chambre/generate-qr/${idChambre}`, { responseType: 'arraybuffer' })
+    return this.http.get(`http://192.168.80.128:8086/projet/chambre/generate-qr/${idChambre}`, { responseType: 'arraybuffer' })
       .pipe(
         map(data => new Blob([data], { type: 'image/png' }))
       );

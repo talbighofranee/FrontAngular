@@ -12,19 +12,19 @@ export class FoyerService {
   constructor(private _http: HttpClient) { }
 
   fetchfoyers() {
-    return this._http.get("http://localhost:8086/projet/foyer/retrieve-all-foyer");
+    return this._http.get("http://192.168.80.128:8086/projet/foyer/retrieve-all-foyer");
   }
 
   fetchfoyerById(id: number) {
-    return this._http.get<foyer>("http://localhost:8086/projet/foyer/retrieve-foyer/" + id);
+    return this._http.get<foyer>("http://192.168.80.128:8086/projet/foyer/retrieve-foyer/" + id);
   }
 
   addfoyer(uni: foyer) {
-    return this._http.post<foyer>("http://localhost:8086/projet/foyer/add-foyer", uni);
+    return this._http.post<foyer>("http://192.168.80.128:8086/projet/foyer/add-foyer", uni);
   }
 
   updatefoyer(id:number, uni: foyer) {
-    const url="http://localhost:8086/projet/foyer/update-foyer";
+    const url="http://192.168.80.128:8086/projet/foyer/update-foyer";
     return this._http.put<foyer>(url, uni);
   }
   

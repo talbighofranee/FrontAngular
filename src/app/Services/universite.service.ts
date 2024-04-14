@@ -8,25 +8,25 @@ import { universite } from '../Models/universite';
   providedIn: 'root'
 })
 export class UniversiteService {
-  apiUrl='http://localhost:8086/projet/universite/';
+  apiUrl='http://192.168.80.128:8086/projet/universite/';
   list: string[] = [];
 
   constructor(private _http: HttpClient) { }
 
   fetchUnis() {
-    return this._http.get("http://localhost:8086/projet/universite/retrieve-all-universities");
+    return this._http.get("http://192.168.80.128:8086/projet/universite/retrieve-all-universities");
   }
 
   fetchUniById(id: number) {
-    return this._http.get<universite>("http://localhost:8086/projet/universite/retrieve-university/" + id);
+    return this._http.get<universite>("http://192.168.80.128:8086/projet/universite/retrieve-university/" + id);
   }
 
   addUni(uni: universite) {
-    return this._http.post<universite>("http://localhost:8086/projet/universite/add-university", uni);
+    return this._http.post<universite>("http://192.168.80.128:8086/projet/universite/add-university", uni);
   }
 
   updateUni(id:number, uni: universite) {
-    const url="http://localhost:8086/projet/universite/update-university";
+    const url="http://192.168.80.128:8086/projet/universite/update-university";
     return this._http.put<universite>(url, uni);
   }
   
@@ -44,11 +44,11 @@ export class UniversiteService {
   
 
   removeUni(id: number) {
-    return this._http.delete<universite>("http://localhost:8086/projet/universite/remove-university/"+ id);
+    return this._http.delete<universite>("http://192.168.80.128:8086/projet/universite/remove-university/"+ id);
   }
 
   qrcode(id: number): Observable<Blob> {
-    return this._http.get(`http://localhost:8086/projet/universite/${id}/qr-code`, { responseType: 'arraybuffer' })
+    return this._http.get(`http://192.168.80.128:8086/projet/universite/${id}/qr-code`, { responseType: 'arraybuffer' })
       .pipe(
         map(data => new Blob([data], { type: 'image/png' }))
       );
