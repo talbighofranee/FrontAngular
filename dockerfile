@@ -12,7 +12,6 @@ RUN npm install
 
 # Construire le projet
 RUN npm run build
-EXPOSE 4200
 
 # Deuxième étape pour créer une image légère
 FROM nginx:alpine
@@ -20,8 +19,8 @@ FROM nginx:alpine
 # Copier les fichiers de build depuis la première étape
 COPY --from=build /app/dist/* /usr/share/nginx/html/
 
-# Exposer le port 80 pour accéder à l'application
-EXPOSE 80
+EXPOSE 4200
+
 
 # Commande pour démarrer le serveur nginx
 CMD ["nginx", "-g", "daemon off;"]
