@@ -22,5 +22,6 @@ COPY --from=build /app/dist/* /usr/share/nginx/html/
 EXPOSE 4200
 
 
+
 # Commande pour démarrer le serveur nginx
 CMD ["nginx", "-g", "daemon off;"]
